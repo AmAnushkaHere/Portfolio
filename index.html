@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anushka's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a55a9005de.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', 'sans-serif';
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: #080808;
+            color: #ffff;
+        }
+        .left {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: beige;
+            right: 50px;
+        }
+        #header {
+            width: 100%;
+            height: 100vh;
+            background-position: right center;
+            background-repeat: no-repeat;
+            background-image: url(bg.png.jpg);
+            background-size: auto 100%;
+        }
+        .container {
+            text-align: center;
+            margin-top: 100px;
+            padding-top: 170px;
+        }
+        .content h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+
+        }
+        #element {
+            font-size: 2rem;
+            color: #e5efed;
+            font-weight: bold;
+        }
+        .highlight {
+            color: gray;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 70px;
+            padding: 0 20px;
+            background-color: black;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            list-style: none;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: beige;
+            font-size: 1rem;
+        }
+        nav ul li a:hover {
+            color: rgb(108, 99, 99);
+            font-size: 1.04rem;
+        }
+        #about {
+            padding: 80px 0;
+            color: #ababab;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .about-col-1 {
+            flex-basis: 35%;
+        }
+        .about-col-1 img {
+            width: 340px;
+            border-radius: 15px;
+        }
+        .about-col-2 {
+            flex-basis: 60%;
+            text-align: left;
+        }
+        .sub-title {
+            font-size: 60px;
+            font-weight: 600;
+            color: white;
+        }
+        .tab-title {
+            display: flex;
+            margin: 20px 0 40px;
+        }
+        .tab-links {
+            margin-right: 50px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+        }
+        .tab-links::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: #ff004f;
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            transition: 0.5s;
+        }
+        .tab-links.active-link::after {
+            width: 50%;
+        }
+        .tab-contents ul li {
+            list-style: none;
+            margin: 10px 0;
+        }
+        .tab-contents ul li span {
+            color: #bf4769;
+            font-size: 14px;
+        }
+        .tab-contents {
+            display: none;
+        }
+        .tab-contents.active-tab {
+            display: block;
+        }
+        h2 {
+            font-size: 1rem;
+            /* Reduce the font size of headings */
+            color: #e5efed;
+            margin-bottom: 5px;
+        }
+        ul {
+            font-size: 0.8rem;
+            /* Reduce the font size of list items */
+            line-height: 1.5;
+            /* Adjust line height for better readability */
+            color: #ababab;
+        }
+        ul li {
+            margin: 3px 0;
+            /* Add spacing between list items */
+        }
+        ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: -300px;
+            list-style-type: none;
+            padding: 0;
+            margin: 0 0;
+        }
+        ul li {
+            font-size: 0.8rem;
+            color: #ababab;
+        }
+        #services {
+            padding: 30px 0;
+        }
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+        .services-list div {
+            background: #262626;
+            padding: 40px;
+            font-size: 13px;
+            font-weight: 300;
+            border-radius: 10px;
+            transition: background 0.5s, transform 0.5s;
+        }
+        .services-list div i {
+            font-size: 50px;
+            margin-bottom: 30px;
+        }
+        .services-list div h2 {
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .services-list div a {
+            text-decoration: none;
+            color: #ffff;
+            font-size: 12px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .services-list div:hover {
+            background: #ff004f;
+            transform: translateY(-10px);
+        }
+        .contact-left {
+            flex-basis: 35%;
+        }
+        .contact-right {
+            flex-basis: 60%;
+        }
+        .contact-left p {
+            margin-top: 30px;
+        }
+        .contact-left p i {
+            color: #ff004f;
+            margin-right: 15px;
+            font-size: 25px;
+        }
+        .social-icons {
+            margin-top: 30px;
+        }
+        .social-icons a {
+            text-decoration: none;
+            font-size: 30px;
+            margin-right: 15px;
+            color: #ababab;
+            display: inline-block;
+            transition: transform 0.5s;
+        }
+        .social-icons a:hover {
+            color: #ff004f;
+            transform: translateY(-5px);
+        }
+        .btn.btn2 {
+
+            display: inline-block;
+            background: #ff004f;
+
+        }
+        .copyright {
+            width: 100%;
+            text-align: center;
+            padding: 25px 0;
+            background: #262626;
+            font-weight: 300;
+            margin-top: 20px;
+        }
+        .copyright i {
+            color: #ff004f;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">Anushka's Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div id="header">
+        <div class="container">
+            <div class="content">
+                <h1><span class="highlight">Hi, I am </span>Anushka</h1>
+                <h1><span class="highlight">and I am a</span> </h1>
+                <span id="element"></span>
+            </div>
+        </div>
+    </div>
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="image.png.jpg">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Hey there! I'm Anushka Sinha, nice to meet you!<br>
+                        Recently graduated with a B.Tech in Computer Science and Information Technology from Siksha
+                        'O'Anusandhan, Bhubanaeswar.<br>
+                        I thrive on learning, growing, and pushing the boundaries of what's possible.<br>
+                        Let's connect and create something amazing together!</p>
+                    <div class="tab-title">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <h2>Programming Languages</h2>
+                        <ul>
+                            <li>Java</li>
+                            <li>JavaScript</li>
+                            <li>SQL</li>
+                            <li>HTML</li>
+                        </ul>
+                        <h2>Tools and Technologies</h2>
+                        <ul>
+                            <li>Docker</li>
+                            <li>Kubernetes</li>
+                            <li>Jenkins</li>
+                            <li>GIT</li>
+                        </ul>
+                        <h2>Soft Skills</h2>
+                        <ul>
+                            <li>Analytical Thinking</li>
+                            <li>Collaboration</li>
+                            <li>Teamwork</li>
+                            <li>Decision Making</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><strong>DevOps and Cloud Intern</strong></li>
+                            <li><strong>Tata Elxsi</strong></li>
+                            <li>Bengaluru</li>
+                            <li>02/2024 - 06/2024</li>
+                            <li>
+                                <strong>•</strong> Worked on a TVS Tether Deployment Project, leading <br>selective
+                                service execution and
+                                management of concurrent deployments, streamlining port configurations for new services.
+                            </li>
+                            <li>
+                                <strong>•</strong>Designed and implemented CI/CD pipelines in Kubernetes and GKE,
+                                automated system
+                                configurations and port management, and developed deployment files for integration
+                                into GKE for optimized performance.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><strong>Siksha ‘O’ Anusandhan</strong></li>
+                            <li>Bachelor of Technology | CSIT | <strong>8.7 CGPA</strong></li>
+                            <li>Bhubaneswar</li>
+                            <li>2020 - 2024</li>
+                            <li><strong>Sacred Heart Convent School</strong></li>
+                            <li>12th | ICSE | <strong>84%</strong></li>
+                            <li>Jamshedpur</li>
+                            <li>2020</li>
+                            <li><strong>Sacred Heart Convent School</strong></li>
+                            <li>10th | ICSE | <strong>90%</strong></li>
+                            <li>Jamshedpur</li>
+                            <li>2018</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Web Developement</h2>
+                    <p>Design and build websites that are not only visually appealing but also user-friendly and
+                        functional.<br>
+                        Whether it’s a personal project or a professional platform,<br>
+                        the site meets your goals and offers a seamless experience for users.</p>
+                    <a href="https://www.geeksforgeeks.org/web-development/">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-cloud"></i>
+                    <h2>Cloud Solutions</h2>
+                    <p>With experience in cloud computing technologies, help businesses harness the power of the cloud
+                        for scalability,<br>
+                        security, and efficiency.<br>
+                        From setting up cloud infrastructure to managing deployments and optimizing performance,
+                        provision end-to-end support is made.
+                    </p>
+                    <a href="https://cloud.google.com/">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-brands fa-app-store"></i>
+                    <h2>Automation</h2>
+                    <p>Streamline of processes and improving efficiency by leveraging cutting-edge tools and scripting
+                        solutions.<br>
+                        Whether it's automating workflows, managing CI/CD pipelines, or simplifying repetitive
+                        tasks,<br>
+                        saving time and resources while boosting productivity is an optimization expertise.</p>
+                    <a href="https://www.geeksforgeeks.org/what-is-automation/">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p>
+                        <a href="mailto:anushkasinha01@hotmail.com" style="text-decoration: none; color: inherit;">
+                            <i class="fa-solid fa-envelope"></i> anushkasinha01@hotmail.com
+                        </a>
+                    </p>
+                    <p>
+                        <a href="tel:9102597111" style="text-decoration: none; color: inherit;">
+                            <i class="fa-solid fa-phone"></i> 9102597111
+                        </a>
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/anushka-sinha-571a07248/"><i
+                                class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/AmAnushkaHere"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://twitter.com/anushkasinha_01"><i class="fa-brands fa-x-twitter"></i></i></a>
+                        <a href="https://www.instagram.com/_._anushka____/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/Anushka Sinha"><i class="fa-brands fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="" contact-right">
+                    <a href="ANUSHKA SINHA (2).pdf" class="btn btn2">Download Resume</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright. Made with <i class="fa-solid fa-heart"></i> by Anushka Sinha <i
+                class="fa-solid fa-face-smile"></i> </p>
+    </div>
+    </div>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Web Developer', 'Budding Web Designer', 'DevOps and Cloud Engineer'],
+            typeSpeed: 50,
+            loop: true,
+            showCursor: false
+        });
+    </script>
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab")
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+</body>
+</html>
